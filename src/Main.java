@@ -4,9 +4,9 @@ import java.util.Arrays;
 // then press Enter. You can now see whitespace characters in your code.
 public class Main {
     public static void main(String[] args) {
-        int[] numbers = {4,1,2,5,3,6};
+        int[] numbers = {4,1,2,5,3,6,0,7};
 
-        MergeSort.sort(numbers);
+        InsertionSort.sort(numbers);
         System.out.println(Arrays.toString(numbers));
 
 //        System.out.println(Arrays.toString(sortedNumber));
