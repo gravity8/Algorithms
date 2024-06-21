@@ -5,8 +5,7 @@ import java.util.Arrays;
 public class Main {
     public static void main(String[] args) {
         int[] numbers = {4,1,2,5,3,6,0,7};
-
-        InsertionSort.sort(numbers);
+        Quicksort.sort(numbers);
         System.out.println(Arrays.toString(numbers));
 
 //        System.out.println(Arrays.toString(sortedNumber));
