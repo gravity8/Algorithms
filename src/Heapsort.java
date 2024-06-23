@@ -13,18 +13,11 @@ public class Heapsort {
         int leftChild = currIndex*2+1;
         int rightChild = leftChild+1;
         if(currIndex>=0) {
-            if (leftChild < n) {
-                if (rightChild < n) {
-                    int greater = Greater(leftChild,rightChild, array);
-                    if (array[currIndex] < array[greater]) {
-                        swap(currIndex, greater, array);
-                        placeInRightPos(greater, array.length-1, array);
-                    }
-                } else {
-                    if (array[currIndex] < array[leftChild]) {
-                        swap(currIndex, leftChild, array);
-                        placeInRightPos(leftChild, array.length-1, array);
-                    }
+            if (leftChild < n || rightChild < n) {
+                int greater = Greater(leftChild,rightChild, array);
+                if (array[currIndex] < array[greater]) {
+                    swap(currIndex, greater, array);
+                    placeInRightPos(greater, array.length-1, array);
                 }
             }
             heapify(currIndex - 1, array);
@@ -75,7 +68,7 @@ public class Heapsort {
     //This returns the position of the Greater element between left and right node.
     static int Greater(int l, int r, int[] array){
         int greater = array[l];
-        if(greater<array[r]){
+        if(r<array.length-1 && greater<array[r]){
             greater = array[r];
             return r;
         }
