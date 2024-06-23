@@ -4,6 +4,7 @@ import java.util.Arrays;
 // then press Enter. You can now see whitespace characters in your code.
 public class Main {
     public static void main(String[] args) {
+
         int[] numbers = {
                 7823103, 2599204, 5025540, 2445778, 8150029,
                 1570884, 1940769, 5182084, 1872714, 1514868,

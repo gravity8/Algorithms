@@ -15,13 +15,10 @@ public class Heapsort {
         if(currIndex>=0) {
             if (leftChild < n) {
                 if (rightChild < n) {
-                    int greaterElem = rightChild;
-                    if (array[greaterElem] < array[leftChild]) {
-                        greaterElem = leftChild;
-                    }
-                    if (array[currIndex] < array[greaterElem]) {
-                        swap(currIndex, greaterElem, array);
-                        placeInRightPos(greaterElem, array.length-1, array);
+                    int greater = Greater(leftChild,rightChild, array);
+                    if (array[currIndex] < array[greater]) {
+                        swap(currIndex, greater, array);
+                        placeInRightPos(greater, array.length-1, array);
                     }
                 } else {
                     if (array[currIndex] < array[leftChild]) {
