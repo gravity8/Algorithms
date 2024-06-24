@@ -1,20 +1,21 @@
-import java.lang.reflect.Array;
-import java.util.Arrays;
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
+import Objects.Graph;
+
 public class Main {
     public static void main(String[] args) {
+        Graph myGraph = new Graph();
 
-        int[] numbers = {
-                7823103, 2599204, 5025540, 2445778, 8150029,
-                1570884, 1940769, 5182084, 1872714, 1514868,
-                9660545, 9088178, 8707424, 7057158, 7996732,
-                3113492, 9357167, 5588714, 1645557, 4157213,
-                7886650, 1914408
-        };
-        Heapsort.sort(numbers);
-        System.out.println(Arrays.toString(numbers));
+        myGraph.addEdges("A","B");
+        myGraph.addEdges("A","G");
+        myGraph.addEdges("B","C");
+        myGraph.addEdges("B","D");
+        myGraph.addEdges("B","E");
+        myGraph.addEdges("E","F");
+        myGraph.addEdges("G","H");
+        myGraph.addEdges("H","I");
+        myGraph.addEdges("I","J");
 
-//        System.out.println(Arrays.toString(sortedNumber));
+        BFS bfs = new BFS();
+        System.out.println("Searching for J");
+        System.out.println(bfs.search("A","J", myGraph));
     }
 }
