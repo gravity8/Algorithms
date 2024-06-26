@@ -30,7 +30,7 @@ public class Main {
         myGraph.addEdge("F","D", 3);
 
         Djikstra djikstra = new Djikstra();
-        Map<String, Integer> result = djikstra.search("A","C", myGraph);
+        Map<String, Integer> result = djikstra.search("A","F", myGraph);
         System.out.println(result);
         System.out.println("The shortest path between A and C is: " + result.get("C"));
     }

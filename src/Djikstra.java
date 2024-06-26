@@ -70,6 +70,11 @@ public class Djikstra {
         System.out.print(start+"-->");
         //For every node I visit I add it to the "Visited" List.
         visited.add(start);
+        if (Smallest.isEmpty()){
+            end = true;
+            System.out.println("destination not found");
+            return;
+        }
         //Getting the Edge/Path with shortest path
         String next = Smallest.peek().getDestination();
         //Clearing the Priority Queue for next set of Edges to avoid conflict.
@@ -79,11 +84,11 @@ public class Djikstra {
             found = true;
             return;
         }
-
         //If I get to the end of the Graph I flag.
         if(dGraph.getList().get(next).size()==0){
             end = true;
             System.out.println("destination not found");
+            return;
         }
         //Calculating the distance
         Relaxation(dGraph, next);
