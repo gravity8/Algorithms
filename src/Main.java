@@ -1,5 +1,6 @@
 import Objects.DGraph;
 import Objects.Edge;
+import Objects.WGraph;
 
 import java.util.HashMap;
 import java.util.List;
@@ -7,31 +8,23 @@ import java.util.Map;
 
 public class Main {
     public static void main(String[] args) {
-        DGraph myGraph = new DGraph(new HashMap<>());
+        WGraph myGraph = new WGraph();
 
+        myGraph.addEdge("A","B", 6);
+        myGraph.addEdge("A","C", 5);
+        myGraph.addEdge("A","D", 5);
+        myGraph.addEdge("C","B", -2);
+        myGraph.addEdge("D","C", -2);
+        myGraph.addEdge("D","G", -1);
+        myGraph.addEdge("B","E", -1);
+        myGraph.addEdge("C","E", 1);
+        myGraph.addEdge("E","F", 3);
+        myGraph.addEdge("G","F", 3);
 
-        myGraph.addVertex("A");
-        myGraph.addVertex("B");
-        myGraph.addVertex("C");
-        myGraph.addVertex("D");
-        myGraph.addVertex("E");
-        myGraph.addVertex("F");
+        BellmanFord bellmanFord = new BellmanFord();
 
-        myGraph.addEdge("A","B", 10);
-        myGraph.addEdge("B","A", 10);
-        myGraph.addEdge("A","C", 50);
-        myGraph.addEdge("C","B", 9);
-        myGraph.addEdge("B","D", 15);
-        myGraph.addEdge("D","C", 20);
-        myGraph.addEdge("D","E", 35);
-        myGraph.addEdge("E","D", 30);
-        myGraph.addEdge("C","E", 10);
-        myGraph.addEdge("A","E", 45);
-        myGraph.addEdge("F","D", 3);
+        Map<String, Integer> shortestPath = bellmanFord.search("A", myGraph);
 
-        Djikstra djikstra = new Djikstra();
-        Map<String, Integer> result = djikstra.search("A","F", myGraph);
-        System.out.println(result);
-        System.out.println("The shortest path between A and C is: " + result.get("C"));
+        System.out.println(shortestPath);
     }
 }
