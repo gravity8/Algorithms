@@ -1,30 +1,24 @@
-import Objects.DGraph;
-import Objects.Edge;
-import Objects.WGraph;
+import Objects.*;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-public class Main {
+class Main {
     public static void main(String[] args) {
-        WGraph myGraph = new WGraph();
+        UndirectedWeightedGraph myGraph = new UndirectedWeightedGraph();
 
-        myGraph.addEdge("A","B", 6);
-        myGraph.addEdge("A","C", 5);
-        myGraph.addEdge("A","D", 5);
-        myGraph.addEdge("C","B", -2);
-        myGraph.addEdge("D","C", -2);
-        myGraph.addEdge("D","G", -1);
-        myGraph.addEdge("B","E", -1);
-        myGraph.addEdge("C","E", 1);
-        myGraph.addEdge("E","F", 3);
-        myGraph.addEdge("G","F", 3);
+        myGraph.addEdge("A","B", 2);
+        myGraph.addEdge("B","C", 7);
+        myGraph.addEdge("A","F", 5);
+        myGraph.addEdge("A","D", 4);
+        myGraph.addEdge("B","D", 1);
+        myGraph.addEdge("B","F", 8);
+        myGraph.addEdge("B","G", 4);
+        myGraph.addEdge("B","E", 3);
+        myGraph.addEdge("F","G", 1);
+        myGraph.addEdge("D","E", 2);
+        myGraph.addEdge("E","C", 10);
+        myGraph.addEdge("C","G", 6);
 
-        BellmanFord bellmanFord = new BellmanFord();
+        Prim prim = new Prim();
+        prim.search("A", myGraph);
 
-        Map<String, Integer> shortestPath = bellmanFord.search("A", myGraph);
-
-        System.out.println(shortestPath);
     }
 }

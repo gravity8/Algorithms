@@ -3,8 +3,8 @@ package Objects;
 import javax.print.attribute.standard.Destination;
 
 public class Edge {
-    private final String destination;
-    private final int weight;
+    public final String destination;
+    final int weight;
 
     public Edge(String destination, int weight){
         this.destination = destination;
