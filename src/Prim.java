@@ -15,7 +15,7 @@ public class Prim {
         //Add all edges connected to the start node to the priority Queue.
         addEdgesToQueue(start, graph);
 
-        while (!edgePriorityQueue.isEmpty()) {
+        while (!edgePriorityQueue.isEmpty() && visited.size()<graph.getList().size()) {
             Edge2 minEdge = edgePriorityQueue.poll();
 
             //Because we are dealing with undirected graph this ensures we are not perambulating.

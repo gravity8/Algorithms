@@ -17,8 +17,9 @@ class Main {
         myGraph.addEdge("E","C", 10);
         myGraph.addEdge("C","G", 6);
 
-        Prim prim = new Prim();
-        prim.search("A", myGraph);
+        Kruskal kruskal = new Kruskal();
+        int weight = kruskal.search("A", myGraph);
+        System.out.println("The minimum weight of spanning tree is: "+weight);
 
     }
 }
